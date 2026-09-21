@@ -60,7 +60,8 @@ cd C:\Users\TuUsuario\Documents\Proyectos   # Ubicarte en tu carpeta de trabajo
 
 git clone https://github.com/Edilsondev315/protocol_down-frontend.git
 cd protocol_down-frontend
-npm install
+// npm install 
+
 ```
 
 ---
