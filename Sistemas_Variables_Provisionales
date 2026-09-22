@@ -1,0 +1,143 @@
+# Documento de Disposiciones del Proyecto: PROTOCOL_DOWN
+
+---
+
+## 1. Visión General y Resumen del Juego
+
+**PROTOCOL_DOWN** es un videojuego 2D multijugador cooperativo en tiempo real desarrollado en **Python puro con la librería Pygame**, diseñado bajo una arquitectura estrictamente modular.
+
+El juego reúne a un equipo de hasta **11 jugadores en paralelo** en una red local (LAN). Cada participante se conecta desde su propio equipo para avanzar por un mapa 2D de desplazamiento lateral en una única pantalla de terreno. Los jugadores colaboranRecolectando componentes de red (Cables UTP, Switches y Routers) que otorgan habilidades únicas para enfrentarse a un Boss que simula fallas y protocolos de red.
+
+---
+
+## 2. Arquitectura de Código y Estructura Modular (REGLA FUNDAMENTAL)
+
+* **Principio de Un Archivo por Integrante:** Ningún integrante editará o compartirá el mismo archivo de código `.py`.
+* **Desacoplamiento Absoluto:** Cada módulo funcionará como un componente independiente (clases, funciones de lógica, clientes de red, dibujado de UI o reproductores de audio) y se conectará al núcleo del juego mediante importaciones limpias (`import`) y paso de parámetros.
+* **Archivos Locales:** Las preguntas, respuestas y comandos de los puzles de CCNA 1 se cargarán desde un archivo de texto/JSON almacenado localmente en el proyecto.
+
+
+
+---
+
+## 3. Jugabilidad, Mecánicas de Combate y Red
+
+### 3.1 Conexión y Control
+
+* **Red y Multijugador:** Servidor local persistente (PocketBase / Docker / Sockets) en una PC de la LAN con sincronización de estado, posiciones y tabla de clasificación en tiempo real.
+
+
+* **Control de Jugador:** Cada uno de los 11 jugadores controla su personaje de forma independiente utilizando **Teclado y Mouse** desde su respectivo computador.
+
+
+* **Cámara 2D:** La cámara sigue individualmente a cada jugador a medida que se desplaza lateralmente por el escenario.
+
+
+
+### 3.2 Habilidades de Hardware
+
+Los componentes recolectados en el mapa otorgan ventajas tácticas mediante una **Ventana Emergente (Pop-up)** de uso:
+
+* **Cables UTP:** Incrementan la velocidad de enrutamiento/movimiento.
+
+
+* **Switches:** Permiten redistribuir la salud entre los miembros del equipo aliado.
+
+
+* **Routers:** Muestran la ruta más corta para evadir trampas en el mapa.
+
+
+
+---
+
+## 4. El Boss, Puzles de CCNA 1 y Penalizaciones
+
+### 4.1 Comportamiento y Ataques del Boss
+
+El Boss es una amalgama de hardware con animaciones de protocolos. Posee dos ataques principales:
+
+1. **Bloqueo de Acceso (ACL):** Inmoviliza al jugador impactado durante 1 segundo.
+
+
+2. **Ondas de Latencia:** Aumentan el tiempo de enfriamiento (*cooldown*) de las habilidades de hardware.
+
+
+
+### 4.2 Puzle de Escudos de Seguridad
+
+* **Desactivación de Escudos:** Para lograr hacerle daño al Boss, sus escudos deben ser desactivados mediante un puzle interactivo de comandos CLI o preguntas teóricas de CCNA 1.
+
+
+* **Asignación del Puzle:** Cuando el Boss activa sus escudos, el puzle de CCNA le aparece únicamente a **un jugador seleccionado**. Ese jugador debe resolver el *bypass* en pantalla mientras los demás lo defienden.
+
+
+* **Penalización por Error:** Si el jugador se equivoca en la respuesta o comando del puzle, **recibe daño directo en su barra de vida**.
+
+
+
+### 4.3 Economía de Daño
+
+* El jugador que inflija más daño al Boss obtiene un beneficio temporal (*buff*) que incrementa su vida máxima o su nivel de daño.
+
+
+
+---
+
+## 5. Interfaz Visual (HUD / UI)
+
+La pantalla individual de cada jugador en Pygame mostrará los siguientes elementos fijos en la interfaz:
+
+1. **Barra de Vida Propia y Estadísticas:** Indicadores de salud actual y atributos del jugador.
+
+
+2. **Barra de Vida del Boss:** Estado de salud y escudos del jefe.
+
+
+3. **Inventario de Hardware:** Ítems/componentes equipados y listos para activar.
+
+
+4. **Tabla de Clasificación de Daño:** Ranking en tiempo real con la cantidad de daño acumulado por cada jugador de la partida.
+
+
+
+---
+
+## 6. Asignación de Módulos e Integración por Integrante
+
+Cada integrante desarrollará su propio archivo independiente para garantizar cero conflictos en el repositorio:
+
+| Integrante | Rol | Módulo / Archivo Asignado |
+| --- | --- | --- |
+| **Anyorly Urbina** | Banda Sonora | Composición de temas musicales y maquetación de audio.
+
+ |
+| **Cristofer Orduz** | Frontend | Bucle principal de Pygame y renderizado del mapa/cámara.
+
+ |
+| **Gaitán** | Frontend | Módulo de validación CLI, formateo de texto e interfaces independientes.
+
+ |
+| **Julio Galvis** | Frontend | Módulo de menus, pop-ups de interacción y ventanas modales.
+
+ |
+| **Lizeth Murillo** | Diseño Gráfico | Exportación de sprites de personajes y animaciones 2D.
+
+ |
+| **Mariana Rojas** | Investigación | Documentación del marco pedagógico y banco de preguntas CCNA 1.
+
+ |
+| **Sebastian Coppola** | Backend | Servidor local (PocketBase/Sockets) y sincronización LAN.
+
+ |
+| **Sebastian Castro** | Banda Sonora | Creación y procesamiento de efectos de sonido (SFX).
+
+ |
+| **Sneider Gallegos** | Admón / Frontend | Gestión de proyecto y módulo gráfico del HUD/UI.
+
+ |
+| **Tania Ayala** | Investigación | Redacción del informe final, metodología y manuales.
+
+ |
+| **Yeimi** | Diseño Gráfico | Exportación de tilesets de mapas y gráficos de hardware/Boss.
+
+ |
