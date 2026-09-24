@@ -12,12 +12,6 @@
 | Mariana Rojas | Documento de investigación |
 | Sebastian Coppola | Servidores y desarrollo (Backend) |
 | Sebastian Castro | Banda sonora |
-| Sneider Gallegos | Diseño gráfico, administración |
+| Sneider Gallegos | Administración, Desarrollo (Frontend), Diseño web (minimo) |
 | Tania Ayala | Documento de investigación |
 | Yeimi | Diseño gráfico e ilustración |
-
-
-
-Gaitán (Desarrollo - Frontend únicamente)
-Tiempo disponible: 3 horas.
-
